@@ -1,0 +1,72 @@
+<script>
+  // tags
+
+  const tags = [
+    "--commissions-are-open",
+    "--silly-fox",
+    "--trust-me-bro",
+    "--silly-when-your-workflow-isnt",
+  ];
+
+  const taglineElement = document.querySelector("#tagline") as HTMLSpanElement;
+
+  function setNewTag() {
+    taglineElement.innerText = tags[Math.floor(Math.random() * tags.length)];
+  }
+
+  setNewTag();
+
+  taglineElement.addEventListener("click", setNewTag);
+</script>
+
+<div id="header">
+  <div id="title">
+    <h1 class="gradient" style="display: inline-block;">~ redbigz ~</h1>
+    <br />
+    <span id="tagline">--local-branching-on-the-cheap</span>
+  </div>
+  <div id="right">
+    <a href="/">home</a> / <a href="mailto:red@redbigz.com">red@redbigz.com</a>
+  </div>
+</div>
+
+<style>
+  #header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: nowrap;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .gradient {
+    background: -webkit-linear-gradient(right, #E1C2CC, #AB8E97);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #right {
+    display: inline-block;
+    margin-left: auto;
+    padding: 10px;
+    background-color: #454757;
+    border-radius: 10px;
+  }
+
+  #title * {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  #tagline {
+    color: #E1C2CC;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.3s;
+  }
+
+  #tagline:hover {
+    color: white;
+  }
+</style>

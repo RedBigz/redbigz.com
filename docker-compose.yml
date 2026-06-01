@@ -1,0 +1,11 @@
+services:
+  redbigz_com:
+    build: .
+    networks:
+      - cloudflared
+    restart: unless-stopped
+
+networks:
+  cloudflared:
+    external: true
+    name: cloudflared

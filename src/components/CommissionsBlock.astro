@@ -1,0 +1,80 @@
+---
+const { on } = Astro.props;
+---
+
+<div id="margin">
+  <div id="commissions-block" class:list={{ "commissions-open": on }}>
+    <div id="commissions-badge">
+      <div id="online-circle"></div> commissions {on ? "open" : "closed"}
+    </div>
+
+    {
+      on ? (
+        <span>
+          need any custom programs or mods done? <a href="mailto:red@redbigz.com">mail me!</a>
+        </span>
+      ) : (
+        <span>check back later!</span>
+      )
+    }
+  </div>
+
+  <p>
+    i do game modding, discord bots, general programming commissions,
+    open-source development, <b>and much more!</b>
+  </p>
+</div>
+
+<style>
+  #margin {
+    margin: 20px;
+  }
+
+  #commissions-block {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #454757;
+    border-radius: 10px;
+  }
+
+  .commissions-open#commissions-block {
+    border: 1px solid #8d7887;
+  }
+
+  #commissions-badge {
+    width: max-content;
+
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+
+    min-height: 35px;
+    padding-right: 10px;
+    border-radius: 10px;
+    background-color: #343b47;
+
+    margin-right: 10px;
+  }
+
+  .commissions-open #commissions-badge {
+    border: 1px solid #8d7887;
+  }
+
+  #online-circle {
+    width: 10px;
+    height: 10px;
+    background-color: #0000;
+    border: 1px solid white;
+
+    margin: 10px;
+
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .commissions-open #online-circle {
+    background-color: #ab8e97;
+  }
+</style>

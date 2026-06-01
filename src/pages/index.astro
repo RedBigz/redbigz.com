@@ -1,16 +1,98 @@
 ---
-
+import CommissionsBlock from "../components/CommissionsBlock.astro";
+import ContainerBlock from "../components/ContainerBlock.astro";
+import Header from "../components/Header.astro";
+import Pronouns from "../components/Pronouns.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+  <div class="top">
+    <div class="main">
+      <Header />
+      hello! i'm redbigz <Pronouns />, a software developer based in Australia. i know quite a
+      lot about .NET and TypeScript, but i'm still learning new things! right now, i'm learning Rust!
+
+      <div class="table">
+        <ContainerBlock grow="1">
+          <h3>communities i'm in</h3>
+          <ul>
+            <li>TABG modding scene</li>
+            <li>Content Warning modding scene</li>
+            <li>furry fandom</li>
+            <li>linux</li>
+            <li>programming</li>
+          </ul>
+        </ContainerBlock>
+        <ContainerBlock grow="1">
+          <h3>my statistics</h3>
+          <ul>
+            <li>281k thunderstore downloads</li>
+            <li>62k steam workshop subscriptions</li>
+            <li>106 mod steam community awards</li>
+          </ul>
+          <span class="smol"> (as of Apr 2026)</span>
+        </ContainerBlock>
+      </div>
+
+      <h3>hire me!</h3>
+
+      <CommissionsBlock on />
+
+      <h3>find me</h3>
+
+      you can find me:
+
+      <ul>
+        <li>on GitHub: <a href="https://github.com/RedBigz">RedBigz</a></li>
+        <li>on Signal: redbigz.08</li>
+        <li>in person, <i>maybe</i>.</li>
+      </ul>
+
+      <div id="badges">
+        <a href="https://redbigz.com/"><img src="/88x31/redbigz.png" /></a>
+        <a href="https://ppr.redbigz.com/"><img src="/88x31/ppr.png" /></a>
+        <img src="/88x31/pride.png" />
+        <a href="https://archlinux.org/"><img src="/88x31/archlinux.gif" /></a>
+        <a href="https://developer.valvesoftware.com/wiki/Half-Life"><img src="/88x31/hl.gif" /></a>
+        <a href="https://kernel.org"><img src="/88x31/linux.gif" /></a>
+        <a href="https://www.getmonero.org/"><img src="/88x31/monero-now.gif" /></a>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  body {
+    /* width: 100%; */
+  }
+
+  .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main {
+    max-width: 75ch;
+    text-wrap: pretty;
+  }
+
+  .table {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .smol {
+    font-size: 6pt;
+    line-height: 0;
+  }
+
+  #badges {
+    margin: 50px;
+  }
+
+  ul {
+    margin-left: -20px;
+  }
+</style>

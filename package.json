@@ -9,6 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.15.5"
+    "@astrojs/node": "^10.0.6",
+    "astro": "^6"
+  },
+  "devDependencies": {
+    "@types/jquery": "^4.0.0"
   }
 }
