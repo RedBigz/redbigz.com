@@ -1,0 +1,22 @@
+---
+const { grow, minWidth, id } = Astro.props;
+---
+
+<div class="gridbox" {id}>
+    <slot />
+</div>
+
+<style define:vars={{ grow: grow || 1, minWidth: minWidth || "none" }} is:global>
+  .gridbox {
+    display: inline-block;
+    margin: 8px;
+    padding: 20px;
+    
+    background-color: #1e1e2e88;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--accent);
+
+    flex: var(--grow);
+    min-width: var(--minWidth);
+  }
+</style>

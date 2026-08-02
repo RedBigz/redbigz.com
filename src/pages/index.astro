@@ -1,98 +1,57 @@
 ---
-import CommissionsBlock from "../components/CommissionsBlock.astro";
-import ContainerBlock from "../components/ContainerBlock.astro";
-import Header from "../components/Header.astro";
-import Pronouns from "../components/Pronouns.astro";
+// import CommissionsBlock from "../components/CommissionsBlock.astro";
+// import ContainerBlock from "../components/ContainerBlock.astro";
+// import Header from "../components/Header.astro";
+// import Pronouns from "../components/Pronouns.astro";
+import Badges from "../layouts/homepage/Badges.astro";
+import GridBoxContainer from "../components/GridBoxContainer.astro";
+import GridBox from "../components/GridBox.astro";
+import GridBoxBreak from "../components/GridBoxBreak.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import Intro from "../layouts/homepage/Intro.astro";
+import GoodPadding from "../layouts/GoodPadding.astro";
+import Socials from "../layouts/homepage/Socials.astro";
+import Time from "../layouts/homepage/Time.astro";
+import GridBoxHeading from "../components/GridBoxHeading.astro";
+import Projects from "../layouts/homepage/Projects.astro";
+import HireMe from "../layouts/homepage/HireMe.astro";
+import Special from "../layouts/homepage/Special.astro";
 ---
 
 <MainLayout>
-  <div class="top">
-    <div class="main">
-      <Header />
-      hello! i'm redbigz <Pronouns />, a software developer based in Australia. i know quite a
-      lot about .NET and TypeScript, but i'm still learning new things! right now, i'm learning Rust!
+  <GoodPadding>
+    <GridBoxContainer minWidth="250px">
+      <Intro />
 
-      <div class="table">
-        <ContainerBlock grow="1">
-          <h3>communities i'm in</h3>
-          <ul>
-            <li>TABG modding scene</li>
-            <li>Content Warning modding scene</li>
-            <li>furry fandom</li>
-            <li>linux</li>
-            <li>programming</li>
-          </ul>
-        </ContainerBlock>
-        <ContainerBlock grow="1">
-          <h3>my statistics</h3>
-          <ul>
-            <li>281k thunderstore downloads</li>
-            <li>62k steam workshop subscriptions</li>
-            <li>106 mod steam community awards</li>
-          </ul>
-          <span class="smol"> (as of Apr 2026)</span>
-        </ContainerBlock>
-      </div>
+      <GridBoxContainer>
+        <Time />
 
-      <h3>hire me!</h3>
+        <GridBoxBreak />
 
-      <CommissionsBlock on />
+        <GridBox>
+          <Socials />
+        </GridBox>
+      </GridBoxContainer>
 
-      <h3>find me</h3>
+      <HireMe />
 
-      you can find me:
+      <Projects />
 
-      <ul>
-        <li>on GitHub: <a href="https://github.com/RedBigz">RedBigz</a></li>
-        <li>on Signal: redbigz.08</li>
-        <li>in person, <i>maybe</i>.</li>
-      </ul>
+      <GridBoxHeading><h3>Miscellaneous</h3></GridBoxHeading>
 
-      <div id="badges">
-        <a href="https://redbigz.com/"><img src="/88x31/redbigz.png" /></a>
-        <a href="https://ppr.redbigz.com/"><img src="/88x31/ppr.png" /></a>
-        <img src="/88x31/pride.png" />
-        <a href="https://archlinux.org/"><img src="/88x31/archlinux.gif" /></a>
-        <a href="https://developer.valvesoftware.com/wiki/Half-Life"><img src="/88x31/hl.gif" /></a>
-        <a href="https://kernel.org"><img src="/88x31/linux.gif" /></a>
-        <a href="https://www.getmonero.org/"><img src="/88x31/monero-now.gif" /></a>
-      </div>
-    </div>
-  </div>
+      <!-- 2.1 fits 6 88x31s at max width -->
+      <GridBox grow="2.1">
+        <Badges />
+      </GridBox>
+
+      <GridBox minWidth="250px">
+        <Special />
+      </GridBox>
+    </GridBoxContainer>
+
+    <GridBoxHeading>
+      $ redbigz --silly-when-your-workflow-isnt<br />
+      &copy; 2023-2026 redbigz.com
+    </GridBoxHeading>
+  </GoodPadding>
 </MainLayout>
-
-<style>
-  body {
-    /* width: 100%; */
-  }
-
-  .top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .main {
-    max-width: 75ch;
-    text-wrap: pretty;
-  }
-
-  .table {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .smol {
-    font-size: 6pt;
-    line-height: 0;
-  }
-
-  #badges {
-    margin: 50px;
-  }
-
-  ul {
-    margin-left: -20px;
-  }
-</style>

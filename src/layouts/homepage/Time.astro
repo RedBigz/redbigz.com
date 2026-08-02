@@ -1,0 +1,52 @@
+---
+import GridBox from "../../components/GridBox.astro";
+---
+
+<GridBox id="clock-box">
+    <div class="nojs" id="time">00:00:00</div>
+    <div class="nojs" id="locale-info"></div>
+
+    <noscript>
+        <img src="/assets/jarvis.gif" alt="Jarvis, enable JavaScript" height="100px" width="400px" />
+    </noscript>
+</GridBox>
+
+<script>
+    const locale = "en-AU";
+    const timeZone = "Australia/Brisbane";
+
+    const timeElement = document.getElementById("time") as HTMLElement;
+    const localeInfoElement = document.getElementById(
+        "locale-info",
+    ) as HTMLElement;
+
+    setInterval(() => {
+        let date = new Date();
+
+        timeElement.innerText = date.toLocaleTimeString(locale, {
+            timeZone,
+            timeStyle: "medium",
+        });
+
+        let dateString = date.toLocaleDateString(locale);
+
+        localeInfoElement.innerText = `${dateString} / ${timeZone.split("/").toReversed().join(", ")}`;
+    }, 10);
+
+    document.querySelectorAll("#clock-box .nojs").forEach(e => e.classList.remove("nojs"))
+</script>
+
+<style>
+    #time {
+        font-size: xxx-large;
+    }
+
+    #locale-info {
+        font-size: small;
+        color: var(--accent);
+    }
+
+    .nojs {
+        display: none;
+    }
+</style>

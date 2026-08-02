@@ -1,0 +1,45 @@
+---
+import Image from "astro/components/Image.astro";
+import GridBox from "../../components/GridBox.astro";
+import GridBoxContainer from "../../components/GridBoxContainer.astro";
+import GridBoxBreak from "../../components/GridBoxBreak.astro";
+import Business from "../../components/Business.astro";
+
+import { BriefcaseIcon } from "astro-feather";
+import { Hackclub } from "simple-icons-astro";
+---
+
+<GridBoxContainer minWidth="250px">
+    <GridBox>
+        <div id="pfp-monochrome">
+            <img src="../../assets/logos/fox_monochrome.gif" />
+        </div>
+
+        <div id="text">
+            <h3>hi, i'm may! (she/her)</h3>
+            welcome to my website! here you will find whatever i'm really interested
+            in, or something. <br />
+            oh, and my socials too.
+        </div>
+    </GridBox>
+
+    <GridBoxBreak />
+
+    <Business Icon={BriefcaseIcon} name="Myself!" period="2024-" />
+    <Business Icon={Hackclub} name="Hack Club" period="2025-" />
+</GridBoxContainer>
+
+<style>
+    #pfp-monochrome {
+        /* display: inline-block; */
+        float: left;
+
+        margin-right: 10px;
+        /* margin-bottom: 10px; */
+    }
+
+    #text {
+        /* display: inline-block; */
+        /* word-wrap: break-word; */
+    }
+</style>

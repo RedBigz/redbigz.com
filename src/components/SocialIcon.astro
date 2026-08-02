@@ -1,0 +1,23 @@
+---
+const { Icon, name, link } = Astro.props;
+---
+
+<a class="social-link" href={link} title={name}>
+    <Icon />
+</a>
+
+<style>
+    .social-link {
+        display: inline-flex;
+        padding: 8px;
+        margin-right: 8px;
+        border: 1px solid var(--accent);
+        cursor: pointer;
+
+        color: white;
+    }
+
+    a:visited {
+        color: white;
+    }
+</style>

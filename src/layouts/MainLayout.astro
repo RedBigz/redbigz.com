@@ -15,16 +15,30 @@ import { Font } from "astro:assets";
     <Font cssVariable="--font-mono" preload />
 
     <style is:global>
+      :root {
+        --accent: #f5c2e7;
+      }
+
       body {
         font-family: var(--font-mono);
-        font-size: min(12pt, 2vw);
-        background: -webkit-linear-gradient(left, #343b47, #454757);
+        font-size: 12pt;
+        background: #181825;
         background-size: cover;
         color: white;
+        margin: 0;
+      }
+
+      h2,h3,h4 {
+        margin-top: 2pt;
+        margin-bottom: 2pt;
       }
 
       a {
         color: #ab8e97;
+      }
+
+      ul {
+        padding-left: 20px;
       }
     </style>
   </head>

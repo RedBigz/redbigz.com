@@ -1,0 +1,129 @@
+---
+import { StarIcon } from "astro-feather";
+import GridBox from "./GridBox.astro";
+
+const { project, description, image, ctfCaution } = Astro.props;
+
+const {
+    repo: { stars, name, repo },
+} = await (await fetch("https://ungh.cc/repos/" + project)).json();
+
+const owner: string = repo.split("/")[0];
+const me = "RedBigz";
+
+const flagLut: { [key: string]: string } = {
+    "please-preserve-root": "/assets/project-flags/ppr.png",
+};
+
+const ctfTeams = ["please-preserve-root"];
+---
+
+<a href={"https://github.com/" + repo}>
+    <GridBox minWidth="250px">
+        <div id="top">
+            {flagLut[owner] && <img class="flag" src={flagLut[owner]} />}
+            <div id="name-block">
+                {owner != me && <span id="owner">{owner}/</span>}
+                <h3>{name}</h3>
+            </div>
+
+            <span id="stars">
+                <StarIcon size={20} />{stars}
+            </span>
+        </div>
+
+        {
+            description && (
+                <div id="description">
+                    {description}
+                    {ctfCaution && <span id="ctf-status">This software was developed for use by a CTF team in an ephemeral or unstable environment. Please express caution while using this project.</span>}
+                </div>
+            )
+        }
+
+        {image && <img src={image} id="image" />}
+    </GridBox>
+</a>
+
+<style>
+    a {
+        display: contents;
+        color: inherit;
+    }
+
+    #top {
+        display: flex;
+        align-items: center;
+        height: max-content;
+    }
+
+    #top h3 {
+        display: inline-block;
+
+        /* makes organisation text smaller for some reason */
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .flag {
+        margin-right: 8px;
+    }
+
+    #name-block {
+        flex: 1;
+    }
+
+    #owner {
+        font-size: small;
+        display: block;
+        opacity: 0.5;
+    }
+
+    #stars {
+        background-color: #11111b88;
+        border: 1px solid var(--accent);
+        padding: 5px 8px;
+        height: max-content;
+    }
+
+    #stars :global(svg) {
+        vertical-align: middle;
+        position: relative;
+        top: -2px;
+        margin-right: 5px;
+    }
+
+    #description {
+        margin-top: 8px;
+        font-size: small;
+    }
+
+    #ctf-status {
+        display: block;
+        opacity: 0.5;
+        margin-top: 8px;
+    }
+
+    :global(:has(> #image)) {
+        overflow: hidden;
+    }
+
+    #image {
+        position: absolute;
+        object-fit: cover;
+
+        top: -10px;
+        left: -10px;
+
+        /* i have no idea why 40px instead of 20px... */
+        width: calc(100% + 40px);
+        height: calc(100% + 40px);
+
+        z-index: -999;
+
+        /* margin: -10px; */
+
+        opacity: 0.2;
+        filter: blur(10px);
+    }
+</style>

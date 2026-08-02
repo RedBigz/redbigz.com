@@ -1,0 +1,57 @@
+---
+import { CopyIcon } from "astro-feather";
+---
+
+<!-- i don't know what to put here so i'll put instructions to add my 88x31 here for now -->
+
+<h4>add my 88x31! (HTML)</h4>
+
+<a href="https://redbigz.com/"><img src="/assets/88x31/redbigz.png" alt="RedBigz" /></a>
+
+<br />
+
+<div id="bar">
+    <code>
+        &lt;a href="https://redbigz.com/"&gt;&lt;img src="https://redbigz.com/assets/88x31/redbigz.png" alt="RedBigz" /&gt;&lt;/a&gt;
+    </code>
+
+    <button class="nojs" onclick="navigator.clipboard.writeText(document.querySelector('#bar > code').innerText)"><CopyIcon size={12} /></button>
+</div>
+
+<script>
+    document.querySelectorAll("#bar .nojs").forEach(e => e.classList.remove("nojs"))
+</script>
+
+<style>
+    #bar {
+        display: flex;
+    }
+
+    .nojs {
+        display: none;
+    }
+
+    code {
+        overflow: scroll;
+        white-space: pre;
+        height: 1lh;
+        display: block;
+        margin: 4px;
+        flex: 1;
+    }
+
+    button {
+        margin: 4px;
+        background-color: transparent;
+        border: 1px solid var(--accent);
+        color: white;
+    }
+
+    button:hover {
+        background-color: rgb(from var(--accent) r g b / 0.5);
+    }
+
+    button:active {
+        background-color: rgb(from var(--accent) r g b / 0.8);
+    }
+</style>

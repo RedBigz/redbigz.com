@@ -1,0 +1,40 @@
+---
+import GridBox from "./GridBox.astro";
+
+const { Icon, name, period } = Astro.props;
+---
+
+<GridBox minWidth="180px">
+    <div id="business">
+        {Icon && <Icon size={24} />}
+
+        <span id="name">{name}</span>
+        <span id="period">{period}</span>
+    </div>
+</GridBox>
+
+<style>
+    #business {
+        display: flex;
+    }
+
+    #business > :global(*) {
+        vertical-align: middle;
+    }
+
+    #business :global(svg) {
+        margin-right: 10px;
+
+        position: relative;
+        top: -3px;
+    }
+
+    #business #name {
+        flex: 1;
+    }
+
+    #business #period {
+        /* opacity: 0.5; */
+        color: var(--accent);
+    }
+</style>
