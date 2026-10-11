@@ -16,42 +16,45 @@ import GridBoxHeading from "../components/GridBoxHeading.astro";
 import Projects from "../layouts/homepage/Projects.astro";
 import HireMe from "../layouts/homepage/HireMe.astro";
 import Special from "../layouts/homepage/Special.astro";
+import NavBar from "../components/NavBar.astro";
 ---
 
 <MainLayout>
-  <GoodPadding>
-    <GridBoxContainer minWidth="250px">
-      <Intro />
+    <GoodPadding>
+        <NavBar />
 
-      <GridBoxContainer>
-        <Time />
+        <GridBoxContainer minWidth="250px">
+            <Intro />
 
-        <GridBoxBreak />
+            <GridBoxContainer>
+                <Time />
 
-        <GridBox>
-          <Socials />
-        </GridBox>
-      </GridBoxContainer>
+                <GridBoxBreak />
 
-      <HireMe />
+                <GridBox>
+                    <Socials />
+                </GridBox>
+            </GridBoxContainer>
 
-      <Projects />
+            <HireMe />
 
-      <GridBoxHeading><h3>Miscellaneous</h3></GridBoxHeading>
+            <Projects />
 
-      <!-- 2.1 fits 6 88x31s at max width -->
-      <GridBox grow="2.1">
-        <Badges />
-      </GridBox>
+            <GridBoxHeading><h3>Miscellaneous</h3></GridBoxHeading>
 
-      <GridBox minWidth="250px">
-        <Special />
-      </GridBox>
-    </GridBoxContainer>
+            <!-- 2.1 fits 6 88x31s at max width -->
+            <GridBox grow="2.1">
+                <Badges />
+            </GridBox>
 
-    <GridBoxHeading>
-      $ redbigz --silly-when-your-workflow-isnt<br />
-      &copy; 2023-2026 redbigz.com
-    </GridBoxHeading>
-  </GoodPadding>
+            <GridBox minWidth="250px">
+                <Special />
+            </GridBox>
+        </GridBoxContainer>
+
+        <GridBoxHeading>
+            $ redbigz --silly-when-your-workflow-isnt<br />
+            &copy; 2023-2026 redbigz.com
+        </GridBoxHeading>
+    </GoodPadding>
 </MainLayout>

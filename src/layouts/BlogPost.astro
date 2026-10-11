@@ -1,0 +1,38 @@
+---
+import GridBox from "../components/GridBox.astro";
+import GridBoxBreak from "../components/GridBoxBreak.astro";
+import GridBoxContainer from "../components/GridBoxContainer.astro";
+import GridBoxHeading from "../components/GridBoxHeading.astro";
+import NavBar from "../components/NavBar.astro";
+import GoodPadding from "./GoodPadding.astro";
+import MainLayout from "./MainLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<MainLayout>
+    <GoodPadding>
+        <GridBoxContainer minWidth="250px">
+            <a href="/blog" style="margin: 8px">go back</a>
+            <NavBar />
+
+            <GridBoxBreak />
+
+            <GridBox>
+                <h2>{frontmatter.title}</h2>
+                {new Date(frontmatter.date).toLocaleDateString()}
+
+                <slot />
+            </GridBox>
+
+            <GridBoxBreak />
+        </GridBoxContainer>
+
+        <GridBoxBreak />
+
+        <GridBoxHeading>
+            $ redbigz --silly-when-your-workflow-isnt<br />
+            &copy; 2023-2026 redbigz.com
+        </GridBoxHeading>
+    </GoodPadding>
+</MainLayout>

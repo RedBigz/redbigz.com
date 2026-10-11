@@ -1,0 +1,70 @@
+---
+import GridBox from "../../components/GridBox.astro";
+import GridBoxBreak from "../../components/GridBoxBreak.astro";
+import GridBoxContainer from "../../components/GridBoxContainer.astro";
+import GridBoxHeading from "../../components/GridBoxHeading.astro";
+import NavBar from "../../components/NavBar.astro";
+import GoodPadding from "../../layouts/GoodPadding.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const posts = Object.values(import.meta.glob("./*.md", { eager: true }))
+    .toSorted(
+        (a, b) =>
+            new Date((a as any).frontmatter.date).getTime() -
+            new Date((b as any).frontmatter.date).getTime(),
+    )
+    .toReversed();
+---
+
+<MainLayout>
+    <GoodPadding>
+        <NavBar />
+
+        <GridBoxContainer minWidth="250px">
+            <GridBox>
+                <h3>posts</h3>
+
+                <ul>
+                    {
+                        posts.map((post: any) => (
+                            <li>
+                                <div>
+                                    <a href={post.url}>
+                                        <h3>{post.frontmatter.title}</h3>
+                                    </a>
+                                    <small>
+                                        {new Date(
+                                            post.frontmatter.date,
+                                        ).toLocaleDateString()}
+                                    </small>
+                                </div>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </GridBox>
+
+            <GridBox>
+                <h3>welcome to the blog!</h3>
+
+                i make posts on programming, hardware and life :)
+
+                <br /><br />
+
+                viewer discretion is advised due to the following:
+
+                <ul>
+                    <li>profanity</li>
+                    <li>mental health</li>
+                </ul>
+
+                you have been warned.
+            </GridBox>
+        </GridBoxContainer>
+
+        <GridBoxHeading>
+            $ redbigz --silly-when-your-workflow-isnt<br />
+            &copy; 2023-2026 redbigz.com
+        </GridBoxHeading>
+    </GoodPadding>
+</MainLayout>
