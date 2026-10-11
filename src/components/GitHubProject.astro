@@ -6,7 +6,9 @@ const { project, description, image, ctfCaution } = Astro.props;
 
 const {
     repo: { stars, name, repo },
-} = await (await fetch("https://ungh.cc/repos/" + project)).json();
+} = import.meta.env.PROD
+    ? await (await fetch("https://ungh.cc/repos/" + project)).json()
+    : { repo: { name: project.split("/")[1], repo: project, stars: "?" } };
 
 const owner: string = repo.split("/")[0];
 const me = "RedBigz";
@@ -36,7 +38,13 @@ const ctfTeams = ["please-preserve-root"];
             description && (
                 <div id="description">
                     {description}
-                    {ctfCaution && <span id="ctf-status">This software was developed for use by a CTF team in an ephemeral or unstable environment. Please express caution while using this project.</span>}
+                    {ctfCaution && (
+                        <span id="ctf-status">
+                            This software was developed for use by a CTF team in
+                            an ephemeral or unstable environment. Please express
+                            caution while using this project.
+                        </span>
+                    )}
                 </div>
             )
         }
